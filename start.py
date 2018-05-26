@@ -17,8 +17,9 @@ class Start:
 
     def run(self):
         RedisCon().print()
-        self.thisSpider.getHtml('https://movie.douban.com/')
-
+        self.thisSpider.get_html('https://movie.douban.com/')
+        json = self.thisSpider.get_json('https://movie.douban.com/j/new_search_subjects?sort=T&range=0,10&tags=&start=0')
+        print('The JSON DATA:',json)
 
 if __name__ == "__main__":
     start = Start()
