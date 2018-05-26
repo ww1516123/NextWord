@@ -1,1 +1,3 @@
 chardet
+redis
+ConfigParser
