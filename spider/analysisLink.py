@@ -1,4 +1,6 @@
 # -*- coding=utf8 -*-
+from bs4 import BeautifulSoup
+
 
 """
     分析链接地址
@@ -11,3 +13,16 @@ class AnalysisLink:
 
     def addrule(self, rule):
         self.rules.append(rule)
+
+    def check_link(self,html):
+        # 使用html解析工具进行解析
+        soup = BeautifulSoup(html, 'html.parser')
+        # 获取所有的a标签
+        all_a=soup.find_all('a')
+        # 遍历解析
+        for this_a in all_a:
+            try:
+                print(this_a['href'])
+            except KeyError as e:
+                print('出现错误')
+                pass

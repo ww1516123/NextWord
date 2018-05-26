@@ -1,4 +1,4 @@
-chardet
 redis
 ConfigParser
 requests
+beautifulsoup4
