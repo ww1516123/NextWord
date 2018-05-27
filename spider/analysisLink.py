@@ -19,10 +19,14 @@ class AnalysisLink:
         soup = BeautifulSoup(html, 'html.parser')
         # 获取所有的a标签
         all_a=soup.find_all('a')
+        links = []
         # 遍历解析
         for this_a in all_a:
             try:
-                print(this_a['href'])
+                link = this_a['href']
+                if link.startswith('https://movie.douban.com'):
+                    links.append(link)
             except KeyError as e:
                 print('出现错误')
                 pass
+        return links

@@ -8,5 +8,24 @@
 """
 
 
+
+
 class LinkCache:
-    pass
+    __links = []
+    __executes = []
+
+    def add_link(self,link):
+        if link not in self.__executes:
+            if link not in self.__links:
+                self.__links.append(link)
+
+    def get_total(self):
+        return len(self.__links)
+
+    def get_link(self):
+        link = self.__links[0]
+        del self.__links[0]
+        return link.strip()
+
+    def add_execute(self,link):
+        self.__executes.append(link)
